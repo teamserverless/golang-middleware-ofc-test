@@ -17,6 +17,8 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		headers = headers + fmt.Sprintf("%s=%s\n", k, v)
 	}
 
+	w.Header().Set("X-Working", "Yep")
+
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(headers))
 }
