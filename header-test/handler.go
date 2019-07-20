@@ -17,7 +17,8 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		headers = headers + fmt.Sprintf("%s=%s\n", k, v)
 	}
 
-	w.Header().Set("X-Working", "Yep")
+	w.Header().Set("openfaas-cloud", "true")
+	w.Header().Add("test", "go")
 
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(headers))
